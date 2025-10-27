@@ -3,6 +3,8 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 import { renderPDFPageToImage } from '@/lib/pdf-renderer'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     const filePath = join(process.cwd(), 'uploads', 'doc-1761410426810-8eud4vvgt.pdf')
