@@ -114,9 +114,9 @@ export const subscriptionPlans: PricingPlan[] = [
   {
     id: 'monthly',
     name: '1 Month Plan',
-    description: 'Perfect for regular users and small businesses with ongoing document needs',
+    description: 'Perfect for regular users and small businesses - Most affordable premium access at just ₹999',
     pricing: {
-      monthly: 999, // ₹999 for 1 month
+      monthly: 999, // ₹999 for 1 month - Great value!
       yearly: 999, // Same price for monthly plan
       yearlyDiscount: 0,
     },
