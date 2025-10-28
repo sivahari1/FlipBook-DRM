@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { downloadFromS3 } from '@/lib/s3'
-import { addWatermark } from '@/lib/watermark'
+import { addWatermarkToImage } from '@/lib/watermark'
 import { rateLimit } from '@/lib/rateLimit'
 import { getClientInfo } from '@/lib/device'
 import jwt from 'jsonwebtoken'
@@ -99,11 +99,11 @@ export async function GET(
       }
 
       // Add dynamic watermark
-      const watermarkedImage = await addWatermark(imageBuffer, {
-        text: watermarkText,
-        opacity: 0.3,
-        fontSize: 16,
-        position: 'center'
+      const watermarkedImage = await addWatermarkToImage(imageBuffer, {
+        userEmail: watermarkText,
+        timestamp: new Date().toISOString(),
+        format: 'jpeg',
+        opacity: 0.3
       })
 
       // Log tile access
